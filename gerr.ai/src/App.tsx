@@ -8,12 +8,15 @@ import CustomCanvasDraw from './CustomCanvasDraw';
 function App() {
   return (
     <div className="App">
-      <video src ='/images/video1.mp4' autoPlay loop muted />
+      {/* <video src='/images/video1.mp4' autoPlay loop muted />
       <h1>gerr.ai</h1>
-      <p>Let the Elections Begin</p>
+      <p>Let the Elections Begin</p> */}
+      <BackgroundWithText videoSource="/images/video1.mp4" text="gerr.ai" desc="Let the election begin" />
+
+
       {/* Your app content */}
-      { <CustomCanvasDraw />}
-    </div>
+      {<CustomCanvasDraw />}
+    </div >
   );
 }
 

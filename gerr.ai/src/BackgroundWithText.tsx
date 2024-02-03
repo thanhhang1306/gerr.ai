@@ -1,17 +1,21 @@
-// src/BackgroundWithText.tsx
 import React from 'react';
 import './BackgroundWithText.css';
 
 interface BackgroundWithTextProps {
-   backgroundImage: string;
+   videoSource: string;
    text: string;
+   desc: string;
 }
 
-const BackgroundWithText: React.FC<BackgroundWithTextProps> = ({ backgroundImage, text }) => {
+const BackgroundWithText: React.FC<BackgroundWithTextProps> = ({ videoSource, text, desc }) => {
    return (
       <div className="background-container">
-         <div className="blurred-background" style={{ backgroundImage: `url(${backgroundImage})` }}></div>
+         <video autoPlay loop muted className="background-video">
+            <source src={videoSource} type="video/mp4" />
+            Your browser does not support the video tag.
+         </video>
          <h1 className="overlay-text">{text}</h1>
+         <p className="overlay-text">{desc}</p>
       </div>
    );
 };
