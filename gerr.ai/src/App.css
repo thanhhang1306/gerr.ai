@@ -1,33 +1,7 @@
-<<<<<<< HEAD
-video {
-  object-fit:fill;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: -1;
-}
-
-=======
->>>>>>> 6182e9e13be8a28010b6e60a7e21c42062e57ea7
 .App {
   text-align: center;
 }
 
-<<<<<<< HEAD
-.App > h1 {
-  color: #fff;
-  font-size: 100px;
-  margin-top: -150px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.App > p {
-  margin-top: 10px;
-  color: #fff;
-  font-size: 32px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-=======
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -63,4 +37,3 @@ video {
     transform: rotate(360deg);
   }
 }
->>>>>>> 6182e9e13be8a28010b6e60a7e21c42062e57ea7

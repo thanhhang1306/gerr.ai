@@ -16,14 +16,8 @@ function App() {
 
 
       {/* Your app content */}
-<<<<<<< HEAD
-      { <CustomCanvasDraw />}
-      { <About /> }
-    </div>
-=======
       {<CustomCanvasDraw />}
     </div >
->>>>>>> 6182e9e13be8a28010b6e60a7e21c42062e57ea7
   );
 }
 
