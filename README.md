@@ -1,1 +1,1 @@
-# gerr.ai yes
+# gerr.ai
