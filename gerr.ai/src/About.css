@@ -1,0 +1,16 @@
+.About {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+  }
+
+  .About > h1 {
+    color: #fff;
+    font-size: 20px;
+    margin-top: -150px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }

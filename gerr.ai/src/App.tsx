@@ -4,6 +4,7 @@ import './App.css';
 import BackgroundWithText from './BackgroundWithText';
 import Extra from './extra';
 import CustomCanvasDraw from './CustomCanvasDraw';
+import About from './About';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <p>Let the Elections Begin</p>
       {/* Your app content */}
       { <CustomCanvasDraw />}
+      { <About /> }
     </div>
   );
 }
