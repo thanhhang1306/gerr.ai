@@ -1,0 +1,28 @@
+/* src/BackgroundWithText.css */
+.background-container {
+   position: relative;
+   height: 100vh;
+   overflow: hidden;
+}
+
+.blurred-background {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-size: cover;
+   background-position: center;
+   filter: blur(2px);
+   z-index: -1;
+}
+
+.overlay-text {
+   position: absolute;
+   top: 10%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   color: white;
+   font-size: 48px;
+   z-index: 2;
+}
