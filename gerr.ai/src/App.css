@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 video {
   object-fit:fill;
   width: 100%;
@@ -6,16 +7,13 @@ video {
   z-index: -1;
 }
 
+=======
+>>>>>>> 6182e9e13be8a28010b6e60a7e21c42062e57ea7
 .App {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  object-fit: contain;
+  text-align: center;
 }
 
+<<<<<<< HEAD
 .App > h1 {
   color: #fff;
   font-size: 100px;
@@ -29,3 +27,40 @@ video {
   font-size: 32px;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+=======
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+>>>>>>> 6182e9e13be8a28010b6e60a7e21c42062e57ea7
