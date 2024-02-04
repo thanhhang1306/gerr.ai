@@ -13,7 +13,7 @@ const About: React.FC<AboutProps> = ({ title, info }) => {
 
         <div style={
             {
-                width: "80%", /* Adjust the width as needed */
+                width: "50%", /* Adjust the width as needed */
                 height: "300px", /* Adjust the height as needed */
                 backgroundColor: "#e0e0e0", /* Set the background color */
                 display: "flex",
@@ -21,7 +21,7 @@ const About: React.FC<AboutProps> = ({ title, info }) => {
                 alignItems: "center",
                 marginTop: "-100px", /* Center the box horizontally */
                 marginBottom: "150px",
-                marginLeft: "10%",
+                marginLeft: "25%",
                 paddingLeft: "20px",
                 paddingTop: "-70px",
                 paddingBottom: "60px",
