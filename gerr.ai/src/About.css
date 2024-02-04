@@ -1,26 +1,33 @@
+
+
 .About {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    object-fit: contain;
-    font-size: 45px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-  }
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+  font-size: 45px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
-  .About > h1 {
-    color: #680909;
-    font-size: 30px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
+.About > h1 {
+  color: #680909;
+  font-size: 30px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
-  .About2 {
-    margin-left: 10%;
-    margin-right: 10%;
-    transform: translate(0%, -165%);
-    color: #000;
-    font-size: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif
-  }
+.About > p {
+  color: #000; /* Adjust text color as needed */
+  font-size: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.About2 {
+  margin-left: 10%;
+  margin-right: 10%;
+  transform: translate(10%, 10%);
+  font-size: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}

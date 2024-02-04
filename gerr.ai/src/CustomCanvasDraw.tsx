@@ -95,7 +95,7 @@ const CustomCanvasDraw: React.FC = () => {
 
    return (
       <div style={{ textAlign: "center", marginTop: "20px"}}>
-         <h2> Draw the boundary of the region you would like to highlight </h2>
+         <h2> Draw the boundary of the region you would like to highlight around the center!</h2>
          <h3> To add an underlying map image, upload the image below </h3>
          <div style={{
             display: "flex",
