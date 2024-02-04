@@ -79,7 +79,7 @@ const CustomCanvasDraw: React.FC = () => {
             .then(data => {
                if (data.image && data.text_response) {
                   console.log('Image and text response received from the backend.');
-                  
+
                   const lines = data.text_response.split('\n');
 
                   // Map over the lines and create a React element for each line
@@ -111,11 +111,11 @@ const CustomCanvasDraw: React.FC = () => {
    }, [backgroundImage, savedDrawing]);
 
    return (
-      <div style={{ textAlign: "center", marginTop: "20px"}}>
+      <div style={{ textAlign: "center", marginTop: "20px", marginBottom: "-100px" }}>
          <h2> Draw the boundary of the district you would like to create </h2>
-         <h3> Make sure to draw your boundary so that it is a closed loop 
+         <h3> Make sure to draw your boundary so that it is a closed loop
             containing the center of the frame. </h3>
-         <h3>To add an underlying map, 
+         <h3>To add an underlying map,
             upload the image below.  </h3>
          <div style={{
             display: "flex",
@@ -219,14 +219,14 @@ const CustomCanvasDraw: React.FC = () => {
             )}
             {(!loading) && textResponse && (
                <div className='response-container'>
-                  <p>District Analysis:</p>
+                  <p><b>District Analysis:</b></p>
                   <p>{textResponse}</p>
                </div>
             )}
             {loading && (
                <div className="loading-spinner">
-               <ClipLoader color="#000" loading={loading} size={50} />
-             </div>
+                  <ClipLoader color="#000" loading={loading} size={50} />
+               </div>
             )}
          </div>
 
