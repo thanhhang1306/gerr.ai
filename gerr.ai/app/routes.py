@@ -1,5 +1,6 @@
 import sys
 sys.path.append("..")
+sys.path.append("./app")
 
 from flask import request, jsonify, render_template
 from bson import json_util
@@ -79,10 +80,13 @@ def upload_pic():
     
     
     text_response = get_response(scores)
+    # text_response = "Here's my text response!"
 
     buffered = BytesIO()
     new_fill = add_alpha_channel(filled_img)
-    new_fill.save(buffered, format="PNG")
+    pil_img = Image.fromarray(new_fill.astype('uint8'))
+    pil_img.save(buffered, format="PNG")
+    
     processed_image_base64 = base64.b64encode(buffered.getvalue()).decode()
 
 

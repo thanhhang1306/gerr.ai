@@ -48,11 +48,15 @@ def perimeter(filled_img):
     return mask.sum()
 
 def get_img_contour(filled_img):
+    print("Filled image", filled_img)
+    print(filled_img.sum())
     gray_image = cv2.cvtColor(np.float32(filled_img), cv2.COLOR_BGR2GRAY)
 
     gray_image = cv2.convertScaleAbs(gray_image)
+    print("Gray image", gray_image)
+    print((gray_image == 128).sum())
     # Find contours in the grayscale image
-    contours, _ = cv2.findContours(gray_image, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+    contours, _ = cv2.findContours(gray_image//255, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
     new_contour = []
     for i in range(1, len(contours)):
         for j in contours[i]:
@@ -72,6 +76,7 @@ def schwartzberg(filled_img):
 def reock(filled_img):
     Ad = area(filled_img)
     img_cont = get_img_contour(filled_img)
+    print(img_cont)
     center, radius = cv2.minEnclosingCircle(img_cont)
     Ambc = math.pi * radius * radius
     return Ad / Ambc
