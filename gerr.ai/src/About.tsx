@@ -14,7 +14,7 @@ const About: React.FC<AboutProps> = ({ title, info }) => {
         <div style={
             {
                 width: "80%", /* Adjust the width as needed */
-                height: "675px", /* Adjust the height as needed */
+                height: "300px", /* Adjust the height as needed */
                 backgroundColor: "#e0e0e0", /* Set the background color */
                 display: "flex",
                 justifyContent: "center",
