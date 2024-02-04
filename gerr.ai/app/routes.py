@@ -68,6 +68,8 @@ def upload_pic():
 
 
     filled_img = get_filled_img(FILENAME)
+    print(filled_img)
+    print(filled_img.shape)
     scores = {'area': area(filled_img),
           'perimeter': perimeter(filled_img),
           'pp': polsby_popper(filled_img),
@@ -79,8 +81,8 @@ def upload_pic():
 
     
     
-    text_response = get_response(scores)
-    # text_response = "Here's my text response!"
+    # text_response = get_response(scores)
+    text_response = "Here's my text response!"
 
     buffered = BytesIO()
     new_fill = add_alpha_channel(filled_img)

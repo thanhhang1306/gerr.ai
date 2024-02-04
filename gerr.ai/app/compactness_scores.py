@@ -45,6 +45,7 @@ def perimeter(filled_img):
                     mask[j, i] = 1
                 curr_filled = False
     
+    filled_img[mask == 1] = [0, 0, 0]
     return mask.sum()
 
 def get_img_contour(filled_img):

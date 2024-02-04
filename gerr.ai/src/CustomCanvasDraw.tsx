@@ -2,6 +2,17 @@ import React, { useState, useRef, useEffect } from "react";
 import CanvasDraw from "react-canvas-draw";
 import AutoFixNormalIcon from '@mui/icons-material/AutoFixNormal';
 import Button from '@mui/material/Button';
+import { Loader } from 'semantic-ui-react';
+import styled from 'styled-components';
+import { ClipLoader } from 'react-spinners';
+
+const CustomLoader = styled(Loader)`
+  &&& {
+    margin-top: 20%; // Adjust the margin as needed
+    font-size: 1.0em; // Increase the font size for larger loader
+  }
+`;
+
 
 const CustomCanvasDraw: React.FC = () => {
    const [brushColor, setBrushColor] = useState("#000000"); // Default color is black
@@ -12,6 +23,7 @@ const CustomCanvasDraw: React.FC = () => {
    const canvasRef = useRef<CanvasDraw>(null);
    const fileInputRef = useRef<HTMLInputElement>(null);
    const defaultColors = ["#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#0000FF", "#4B0082", "#9400D3", "#000000"]; // Rainbow colors
+   const [loading, setLoading] = useState(false);
    const [processedImage, setProcessedImage] = useState("");
    const [textResponse, setTextResponse] = useState("");
 
@@ -54,6 +66,7 @@ const CustomCanvasDraw: React.FC = () => {
          const dataUrl = canvasDrawInstance.getDataURL('image/png');
          const base64Data = dataUrl.replace(/^data:image\/png;base64,/, "");
          console.log(dataUrl);
+         setLoading(true);
          fetch('http://127.0.0.1:5000/upload_pic', {
             method: 'POST',
             headers: {
@@ -75,6 +88,7 @@ const CustomCanvasDraw: React.FC = () => {
                   console.log('Image and text response received from the backend.');
                   setProcessedImage(data.image);
                   setTextResponse(data.text_response);
+                  setLoading(false);
                } else {
                   console.error('Failed to receive expected data from the backend.');
                }
@@ -95,8 +109,11 @@ const CustomCanvasDraw: React.FC = () => {
 
    return (
       <div style={{ textAlign: "center", marginTop: "20px"}}>
-         <h2> Draw the boundary of the region you would like to highlight </h2>
-         <h3> To add an underlying map image, upload the image below </h3>
+         <h2> Draw the boundary of the district you would like to create </h2>
+         <h3> Make sure to draw your boundary so that it is a closed loop 
+            containing the center of the frame. </h3>
+         <h3>To add an underlying map, 
+            upload the image below.  </h3>
          <div style={{
             display: "flex",
             justifyContent: "center",
@@ -194,14 +211,19 @@ const CustomCanvasDraw: React.FC = () => {
             </Button>
          </div>
          <div>
-            {processedImage && (
+            {(!loading) && processedImage && (
                <img src={`data:image/png;base64,${processedImage}`} alt="Processed Image" style={{ maxWidth: '100%' }} />
             )}
-            {textResponse && (
+            {(!loading) && textResponse && (
                <div>
                   <p>Response from Backend:</p>
                   <p>{textResponse}</p>
                </div>
+            )}
+            {loading && (
+               <div className="loading-spinner">
+               <ClipLoader color="#000" loading={loading} size={50} />
+             </div>
             )}
          </div>
 
