@@ -16,14 +16,14 @@ interface AboutProps {
                 alignItems: "center",
                 border: "2px solid black",
                 padding: "50px",
-                maxWidth: "50%",
-                margin: "0 auto",     
+                maxWidth: "60%",
+                margin: "100px 200px 75px 300px",     
                 backgroundColor: "#F4EBE6",  
                 objectFit: "contain",
                 boxSizing: "border-box",
              }}>  
                  <h1 className="About">{title}</h1>
-             <p style={{ margin: '5 30px' }} className="About2">{info}</p>
+             <p style={{ margin: '0 30px' }} className="About2">{info}</p>
              </div>
     
   );
