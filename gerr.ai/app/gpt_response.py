@@ -20,6 +20,8 @@ def get_response(scores):
     and real-world historical examples of gerrymandering, and
     suggestions on how the shape of the district might be modified
     to improve its fairness, if necessary."""
+
+    # return input_text
     completion = client.chat.completions.create(
         model='gpt-3.5-turbo',
         messages=[

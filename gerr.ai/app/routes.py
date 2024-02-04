@@ -81,8 +81,8 @@ def upload_pic():
 
     
     
-    # text_response = get_response(scores)
-    text_response = "Here's my text response!"
+    text_response = get_response(scores)
+    # text_response = "Here's my text response!"
 
     buffered = BytesIO()
     new_fill = add_alpha_channel(filled_img)

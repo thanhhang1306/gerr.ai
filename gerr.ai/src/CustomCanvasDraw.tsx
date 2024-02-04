@@ -4,6 +4,7 @@ import AutoFixNormalIcon from '@mui/icons-material/AutoFixNormal';
 import Button from '@mui/material/Button';
 import { Loader } from 'semantic-ui-react';
 import { ClipLoader } from 'react-spinners';
+import './CustomCanvasDraw.css';
 
 
 const CustomCanvasDraw: React.FC = () => {
@@ -78,8 +79,18 @@ const CustomCanvasDraw: React.FC = () => {
             .then(data => {
                if (data.image && data.text_response) {
                   console.log('Image and text response received from the backend.');
+                  
+                  const lines = data.text_response.split('\n');
+
+                  // Map over the lines and create a React element for each line
+                  const renderedText = lines.map((line: string, index: number) => (
+                     <React.Fragment key={index}>
+                        {line}
+                        <br />
+                     </React.Fragment>
+                  ));
                   setProcessedImage(data.image);
-                  setTextResponse(data.text_response);
+                  setTextResponse(renderedText);
                   setLoading(false);
                } else {
                   console.error('Failed to receive expected data from the backend.');
@@ -207,8 +218,8 @@ const CustomCanvasDraw: React.FC = () => {
                <img src={`data:image/png;base64,${processedImage}`} alt="Processed Image" style={{ maxWidth: '100%' }} />
             )}
             {(!loading) && textResponse && (
-               <div>
-                  <p>Response from Backend:</p>
+               <div className='response-container'>
+                  <p>District Analysis:</p>
                   <p>{textResponse}</p>
                </div>
             )}
