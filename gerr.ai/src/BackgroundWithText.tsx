@@ -15,7 +15,7 @@ const BackgroundWithText: React.FC<BackgroundWithTextProps> = ({ videoSource, te
             Your browser does not support the video tag.
          </video>
          <h1 className="overlay-text">{text}</h1>
-         <p className="overlay-text">{desc}</p>
+         <p className="overlay-text2">{desc}</p>
       </div>
    );
 };
