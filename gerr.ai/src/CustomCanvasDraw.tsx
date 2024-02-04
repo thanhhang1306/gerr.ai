@@ -3,15 +3,7 @@ import CanvasDraw from "react-canvas-draw";
 import AutoFixNormalIcon from '@mui/icons-material/AutoFixNormal';
 import Button from '@mui/material/Button';
 import { Loader } from 'semantic-ui-react';
-import styled from 'styled-components';
 import { ClipLoader } from 'react-spinners';
-
-const CustomLoader = styled(Loader)`
-  &&& {
-    margin-top: 20%; // Adjust the margin as needed
-    font-size: 1.0em; // Increase the font size for larger loader
-  }
-`;
 
 
 const CustomCanvasDraw: React.FC = () => {
