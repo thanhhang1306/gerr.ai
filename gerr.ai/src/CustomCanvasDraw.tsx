@@ -12,6 +12,9 @@ const CustomCanvasDraw: React.FC = () => {
    const canvasRef = useRef<CanvasDraw>(null);
    const fileInputRef = useRef<HTMLInputElement>(null);
    const defaultColors = ["#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#0000FF", "#4B0082", "#9400D3", "#000000"]; // Rainbow colors
+   const [processedImage, setProcessedImage] = useState("");
+   const [textResponse, setTextResponse] = useState("");
+
 
    const handleEraserClick = () => setBrushColor("#FFFFFF");
    const clearCanvas = () => canvasRef.current?.clear();
@@ -49,9 +52,40 @@ const CustomCanvasDraw: React.FC = () => {
       if (canvasRef.current) {
          const canvasDrawInstance: any = canvasRef.current;
          const dataUrl = canvasDrawInstance.getDataURL('image/png');
+         const base64Data = dataUrl.replace(/^data:image\/png;base64,/, "");
          console.log(dataUrl);
+         fetch('http://127.0.0.1:5000/upload_pic', {
+            method: 'POST',
+            headers: {
+               'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ image: base64Data }),
+         })
+            .then(response => {
+               if (response.ok) {
+                  return response.json(); // Proceed to parse response as JSON only if response is OK
+               } else {
+                  console.error('Non-OK response status:', response.status);
+                  response.text().then(text => console.log(text)); // Log the text of the response for debugging
+                  throw new Error('Non-OK HTTP status');
+               }
+            })
+            .then(data => {
+               if (data.image && data.text_response) {
+                  console.log('Image and text response received from the backend.');
+                  setProcessedImage(data.image);
+                  setTextResponse(data.text_response);
+               } else {
+                  console.error('Failed to receive expected data from the backend.');
+               }
+            })
+            .catch(error => {
+               console.error('Error processing response from the backend:', error);
+            });
       }
    };
+
+
 
    useEffect(() => {
       if (savedDrawing && canvasRef.current) {
@@ -159,6 +193,18 @@ const CustomCanvasDraw: React.FC = () => {
                Submit Image
             </Button>
          </div>
+         <div>
+            {processedImage && (
+               <img src={`data:image/png;base64,${processedImage}`} alt="Processed Image" style={{ maxWidth: '100%' }} />
+            )}
+            {textResponse && (
+               <div>
+                  <p>Response from Backend:</p>
+                  <p>{textResponse}</p>
+               </div>
+            )}
+         </div>
+
       </div>
    );
 };
