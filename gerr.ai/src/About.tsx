@@ -19,8 +19,8 @@ const About: React.FC<AboutProps> = ({ title, info }) => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                marginTop: "100px", /* Center the box horizontally */
-                marginBottom: "0px",
+                marginTop: "-100px", /* Center the box horizontally */
+                marginBottom: "150px",
                 marginLeft: "10%",
                 paddingLeft: "20px",
                 paddingTop: "-70px",
