@@ -1,6 +1,8 @@
 from openai import OpenAI
+import os
 
-client = OpenAI(api_key='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')
+
+client = OpenAI(api_key='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')
 
 def trunc(num):
     return int(1000 * num) / 1000

@@ -12,7 +12,7 @@ function App() {
       {/* <video src='/images/video1.mp4' autoPlay loop muted />
       <h1>gerr.ai</h1>
       <p>Let the Elections Begin</p> */}
-      <BackgroundWithText videoSource="/images/video1.mp4" text="gerr.ai" desc="Learning about Redistricting Interactively!" />
+      <BackgroundWithText videoSource="/images/video1.mp4" text="gerr.ai" desc="An Automated Redistricting Analysis Tool" />
 
 
       {/* Your app content */}
