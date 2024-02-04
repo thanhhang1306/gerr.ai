@@ -9,10 +9,10 @@ import About from './About';
 function App() {
   return (
     <div className="App">
-      {/* <video src='/images/video2.mp4' autoPlay loop muted />
+      {/* <video src='/images/video1.mp4' autoPlay loop muted />
       <h1>gerr.ai</h1>
       <p>Let the Elections Begin</p> */}
-      <BackgroundWithText videoSource="/images/video2.mp4" text="gerr.ai" desc="Let the Elections Begin" />
+      <BackgroundWithText videoSource="/images/video1.mp4" text="gerr.ai" desc="Let the Elections Begin" />
 
 
       {/* Your app content */}
