@@ -29,19 +29,42 @@ def add_alpha_channel(rgb_image):
 
 @app.route('/upload_pic', methods=['POST'])
 def upload_pic():
-    # save pic in filename
-    base64_png = "????"
+    # # save pic in filename
+    # base64_png = "????"
 
+    # image_data = base64.b64decode(base64_png)
+
+    # # Create a BytesIO object to read the decoded image data
+    # image_stream = BytesIO(image_data)
+
+    # # Open the image using PIL
+    # image = Image.open(image_stream)
+
+    # # Save the image as a PNG file
+    # image.save(FILENAME, format="PNG")
+    # Extract base64 string from the request
+    data = request.get_json()
+    base64_png = data['image']
+    
+    # Strip the header if present
+    if base64_png.startswith('data:image/png;base64,'):
+        base64_png = base64_png.replace('data:image/png;base64,', '')
+
+    # Decode the base64 string
     image_data = base64.b64decode(base64_png)
 
     # Create a BytesIO object to read the decoded image data
     image_stream = BytesIO(image_data)
 
     # Open the image using PIL
-    image = Image.open(image_stream)
+    try:
+        image = Image.open(image_stream)
+    except UnidentifiedImageError as e:
+        return jsonify({'error': 'Failed to process image data'}), 400
 
     # Save the image as a PNG file
     image.save(FILENAME, format="PNG")
+
 
     filled_img = get_filled_img(FILENAME)
     scores = {'area': area(filled_img),
@@ -68,5 +91,5 @@ def upload_pic():
         'image': processed_image_base64,
         'text_response': text_response
     }
-
+    print(response_data)
     return jsonify(response_data)
