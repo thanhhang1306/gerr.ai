@@ -219,7 +219,7 @@ const CustomCanvasDraw: React.FC = () => {
             )}
             {(!loading) && textResponse && (
                <div className='response-container'>
-                  <p>District Analysis:</p>
+                  <p><b>District Analysis:</b></p>
                   <p>{textResponse}</p>
                </div>
             )}
