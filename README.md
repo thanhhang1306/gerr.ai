@@ -1,4 +1,6 @@
-***gerr.aie***
+gerr.ai
+==============
+
 **Inspiration**
 
 Hailing from Florida, Georgia, and Texas, we have recently become aware of the poor fairness quality of redistricting in our home states (https://gerrymander.princeton.edu/redistricting-report-card/). While lots of people know gerrymandering is an issue, few are aware of what a gerrymandered district actually looks like, or have the tools to hold their representatives accountable for dubiously drawn boundaries in a streamlined and accessible way. That's where gerr.ai comes in!
